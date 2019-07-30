@@ -25,7 +25,7 @@ new Newspack_Style_Packs_Core(
 		// Style fonts
 		'fonts'              => array(
 			'style-1' => array(
-				'IBM Plex Serif' => 'https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,400i,700,700i',
+				'Fira Sans Condensed' => 'https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,400i,600,600i',
 			),
 		),
 	)

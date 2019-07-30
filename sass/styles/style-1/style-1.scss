@@ -1,3 +1,68 @@
 @import "variables-style/variables-style";
 @import "../../style-base.scss";
 
+/* Style pack-specific overrides */
+
+.accent-header,
+.article-section-title,
+.cat-links {
+	border: 0;
+	color: #666;
+	font-family: $font__heading;
+
+	&:before {
+		background-color: $color__primary;
+		content: "";
+		display: inline-block;
+		height: 0.75em;
+		margin: 0 0.5em 0 0;
+		width: 0.75em;
+	}
+}
+
+/* Posts & Pages */
+
+.cat-links {
+	font-size: $font__size_base;
+}
+
+.cat-links a,
+.cat-links a:hover,
+.cat-links a:visited {
+	background: transparent;
+	color: inherit;
+	margin: 0 1em 0 0;
+	padding: 0;
+}
+
+.avatar {
+	border-radius: 0;
+}
+
+.author-bio .accent-header {
+	margin: 0;
+}
+
+.search,
+.blog {
+	.cat-links {
+		font-size: $font__size-sm;
+	}
+}
+
+/* Blocks */
+
+.entry .entry-content {
+	.has-drop-cap {
+		&:not(:focus)::first-letter {
+			font-family: $font__heading;
+			font-weight: bold;
+		}
+	}
+
+	.wp-block-pullquote {
+		&:before {
+			content: "&raqu"
+		}
+	}
+}
