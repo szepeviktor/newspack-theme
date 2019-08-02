@@ -69,6 +69,8 @@ body:not(.header-solid-background) .site-header {
 	background-color: #efefef;
 }
 
+/* Content area */
+
 #primary {
 	background: #fff;
 	border-top: 2px solid $color__primary-variation;
@@ -82,6 +84,15 @@ body:not(.header-solid-background) .site-header {
 	@include media(desktop) {
 		padding: #{ 2 * $size__spacing-unit } #{ 4.5 * $size__spacing-unit } 0;
 	}
+}
+
+.accent-header,
+.article-section-title {
+	color: $color__text-light;
+	font-family: $font__heading;
+	font-size: $font__size-sm;
+	font-weight: 400;
+	text-transform: uppercase;
 }
 
 .newspack-front-page.hide-homepage-title {
