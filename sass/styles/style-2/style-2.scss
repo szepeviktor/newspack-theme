@@ -1,0 +1,94 @@
+@import "variables-style/variables-style";
+@import "../../style-base.scss";
+
+/* Site Header */
+
+// Header Overlap
+
+.site-header {
+	padding-bottom: #{ 2 * $size__spacing-unit };
+
+	@include media(tablet) {
+		padding-bottom: #{ 4 * $size__spacing-unit };
+	}
+
+	@include media( desktop ) {
+		padding-bottom: #{ 9 * $size__spacing-unit };
+	}
+}
+
+.newspack-front-page.hide-homepage-title .site-content,
+.site-content {
+	margin-top: #{ -2 * $size__spacing-unit };
+
+	@include media(tablet) {
+		margin-top: #{ -4 * $size__spacing-unit };
+	}
+
+	@include media(desktop) {
+		margin-top: #{ -9 * $size__spacing-unit };
+	}
+}
+
+.header-solid-background {
+	.site-header {
+		padding-bottom: #{ 2 * $size__spacing-unit };
+
+		@include media(tablet) {
+			padding-bottom: #{ 4 * $size__spacing-unit };
+		}
+
+		@include media( desktop ) {
+			padding-bottom: #{ 9 * $size__spacing-unit };
+		}
+	}
+
+	&.newspack-front-page.hide-homepage-title .site-content,
+	.site-content {
+		margin-top: #{ -1 * $size__spacing-unit };
+
+		@include media(tablet) {
+			margin-top: #{ -2 * $size__spacing-unit };
+		}
+
+		@include media(desktop) {
+			margin-top: #{ -4 * $size__spacing-unit };
+		}
+	}
+}
+
+.bottom-header-contain .wrapper {
+	border: 0;
+}
+
+.header-solid-background .bottom-header-contain {
+	background-color: $color__primary;
+}
+
+body:not(.header-solid-background) .site-header {
+	background-color: #efefef;
+}
+
+#primary {
+	background: #fff;
+	border-top: 2px solid $color__primary-variation;
+	padding: $size__spacing-unit;
+
+	@include media(tablet) {
+		border-top-width: 4px;
+		padding: #{ 1 * $size__spacing-unit } #{ 3 * $size__spacing-unit } 0;
+	}
+
+	@include media(desktop) {
+		padding: #{ 2 * $size__spacing-unit } #{ 4.5 * $size__spacing-unit } 0;
+	}
+}
+
+.newspack-front-page.hide-homepage-title {
+	.entry .entry-content > * {
+		margin-top: 0;
+	}
+}
+
+
+

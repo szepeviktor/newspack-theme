@@ -201,6 +201,17 @@ function newspack_custom_colors_css() {
 		';
 	}
 
+	if ( 'style-2' === get_theme_mod( 'active_style_pack', 'default' ) ) {
+		$theme_css .= '
+			.header-solid-background .bottom-header-contain {
+				background-color: ' . $primary_color . ';
+			}
+			.site-content #primary {
+				border-color: ' . newspack_adjust_brightness( $primary_color, -40 ) . ';
+			}
+		';
+	}
+
 	$editor_css = '
 		/*
 		 * Set colors for:
