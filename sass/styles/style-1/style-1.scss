@@ -3,12 +3,11 @@
 
 /* Style pack-specific overrides */
 
-.accent-header,
+.accent-header:not(.widget-title),
 .article-section-title,
 .cat-links {
-	border: 0;
 	color: #666;
-	font-family: $font__heading;
+	text-transform: uppercase;
 
 	&:before {
 		background-color: $color__primary;
@@ -20,10 +19,20 @@
 	}
 }
 
+#secondary .widget-title {
+	font-size: $font__size-lg;
+	text-transform: uppercase;
+}
+
 /* Posts & Pages */
 
 .cat-links {
+	font-family: $font__heading;
 	font-size: $font__size_base;
+}
+
+.entry-meta .byline a {
+	color: $color__text-light;
 }
 
 .avatar {
@@ -44,16 +53,121 @@
 /* Blocks */
 
 .entry .entry-content {
-	.has-drop-cap {
-		&:not(:focus)::first-letter {
-			font-family: $font__heading;
-			font-weight: bold;
-		}
+	.has-drop-cap:not(:focus)::first-letter {
+		font-family: $font__heading;
+		font-weight: bold;
 	}
 
 	.wp-block-pullquote {
-		&:before {
-			content: "&raqu"
+		background-color: #fff;
+		border-width: 1px 0 0;
+		font-family: $font__heading;
+		font-weight: bold;
+		position: relative;
+
+		@include media( tablet ) {
+			p {
+				font-size: $font__size-xl;
+			}
 		}
+
+		blockquote {
+			position: relative;
+			text-align: center;
+			z-index: 2;
+		}
+
+		cite {
+			font-size: $font__size-sm;
+			font-weight: normal;
+			text-transform: uppercase;
+		}
+
+		&[style^="border-color"],
+		&.is-style-solid-color {
+			border-width: 0;
+
+			&:before {
+				background-color: inherit;
+				content: "\201C";
+				display: inline-block;
+				font-size: calc( 1rem * 5 );
+				font-weight: normal;
+				left: calc( 50% - 0.25em );
+				line-height: 0.75;
+				position: absolute;
+				text-align: center;
+				top: #{ 1.5 * $size__spacing-unit };
+				width: 0.5em;
+				z-index: 1;
+
+				@include media( tablet ) {
+					font-size: calc( 1rem * 7 );
+				}
+			}
+
+			&:after {
+				border-top: 1px solid;
+				border-top-color: inherit;
+				content: "";
+				display: block;
+				position: absolute;
+				opacity: 0.7;
+				left: 15%;
+				right: 15%;
+				top: #{ 2 * $size__spacing-unit };
+			}
+		}
+
+		&[style^="border-color"]:before {
+			color: $color__primary;
+		}
+
+		&.is-style-solid-color:after {
+			border-top-color: currentColor;
+		}
+
+		&[style^="border-color"],
+		&.is-style-solid-color {
+			padding-top: #{ 4 * $size__spacing-unit };
+		}
+
+		&.alignleft,
+		&.alignright {
+			p {
+				font-size: $font__size-md;
+			}
+
+			&:before {
+				font-size: calc( 1rem * 5 );
+				left: 0;
+				text-align: left;
+				width: 0.5em;
+			}
+
+			&[style^="border-color"],
+			&.is-style-solid-color {
+				padding-top: #{ 3 * $size__spacing-unit };
+			}
+
+			&.is-style-solid-color:before {
+				left: #{ 2 * $size__spacing-unit };
+			}
+		}
+	}
+}
+
+.author-bio .accent-header {
+	color: $color__text-main;
+	font-size: $font__size-md;
+	text-transform: none;
+
+	span {
+		font-size: $font__size-xs;
+		text-transform: uppercase;
+	}
+
+	&:before {
+		display: none;
 	}
 }
