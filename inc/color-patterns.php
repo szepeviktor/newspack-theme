@@ -186,8 +186,12 @@ function newspack_custom_colors_css() {
 		$theme_css .= '
 			.accent-header:before,
 			.article-section-title:before,
-			.cat-links:before {
+			.cat-links:before,
+			.page-title:before {
 				background-color: ' . $primary_color . ';
+			}
+			.entry .entry-content .wp-block-pullquote blockquote:before {
+				color: ' . $primary_color . ';
 			}
 		';
 	}
