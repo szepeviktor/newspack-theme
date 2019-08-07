@@ -3,8 +3,6 @@
 
 /* Site Header */
 
-// Header Overlap
-
 .site-header,
 .header-solid-background .site-header {
 	padding-bottom: #{ 2 * $size__spacing-unit };
@@ -14,7 +12,7 @@
 	}
 
 	@include media( desktop ) {
-		padding-bottom: #{ 9 * $size__spacing-unit };
+		padding: $size__spacing-unit 0 #{ 10 * $size__spacing-unit };
 	}
 }
 
@@ -27,22 +25,7 @@
 	}
 
 	@include media(desktop) {
-		margin-top: #{ -9 * $size__spacing-unit };
-	}
-}
-
-.header-solid-background {
-	&.newspack-front-page.hide-homepage-title .site-content,
-	.site-content {
-		margin-top: #{ -1 * $size__spacing-unit };
-
-		@include media(tablet) {
-			margin-top: #{ -2 * $size__spacing-unit };
-		}
-
-		@include media(desktop) {
-			margin-top: #{ -4 * $size__spacing-unit };
-		}
+		margin-top: #{ -8 * $size__spacing-unit };
 	}
 }
 
@@ -71,34 +54,70 @@ body:not(.header-solid-background) .site-header {
 	}
 
 	@include media(desktop) {
-		padding: #{ 3 * $size__spacing-unit } #{ 4.5 * $size__spacing-unit } 0;
+		padding: #{ 4 * $size__spacing-unit } #{ 4.5 * $size__spacing-unit } 0;
 	}
 }
 
 // Headings
 
-.accent-header,
-.entry-content .wp-block-newspack-blocks-homepage-articles .article-section-title {
+.entry-content .wp-block-newspack-blocks-homepage-articles .article-section-title,
+.cat-links {
 	color: $color__text-light;
 	font-family: $font__heading;
 	font-size: $font__size-xs;
-	letter-spacing: 0.05em;
 	text-transform: uppercase;
 }
 
-.newspack-front-page.hide-homepage-title {
-	.entry .entry-content > * {
-		margin-top: 0;
-	}
+.entry-content .wp-block-newspack-blocks-homepage-articles .article-section-title,
+.single-post .cat-links {
+	margin: 0 0 #{ 3 * $size__spacing-unit };
+}
+
+.newspack-front-page.hide-homepage-title .entry .entry-content > *:first-child {
+	margin-top: 0;
 }
 
 // Pages & Posts
-
-.cat-links {
-	font-size: $font__size-sm;
-}
 
 .entry-meta .byline a {
 	color: $color__text-light;
 }
 
+// Blocks
+
+.entry .entry-content {
+
+	.has-drop-cap:not(:focus)::first-letter {
+		border: 7px solid $color__primary;
+		font-size: $font__size-xxxl;
+		font-weight: bold;
+		line-height: 1;
+		padding: #{ 0.75 * $size__spacing-unit };
+		text-align: center;
+	}
+
+	.wp-block-pullquote {
+		border-width: 12px 0 2px;
+		font-family: $font__heading;
+		font-weight: bold;
+
+		@include media( tablet ) {
+			font-size: $font__size-lg;
+		}
+
+		blockquote p {
+			font-style: normal;
+		}
+
+		cite {
+			font-size: #{ $font__size_base * 0.7 };
+			text-transform: uppercase;
+		}
+
+		&.alignright,
+		&.alignleft {
+			border-width: 8px 0 0;
+			font-size: $font__size-md;
+		}
+	}
+}
